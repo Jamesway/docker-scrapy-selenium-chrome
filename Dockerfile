@@ -51,6 +51,6 @@ ENV CHROMEDRIVER_WHITELISTED_IPS "127.0.0.1"
 ENV CHROMEDRIVER_URL_BASE ''
 
 # entrypoint causes a "starting container process caused chdir to cwd" error with -w /working/dir
-#ENTRYPOINT ["/usr/local/bin/scrapy"]
-#CMD ["--help"]
-CMD ["/usr/local/bin/scrapy", "--help"]
+ENTRYPOINT ["/usr/local/bin/scrapy"]
+CMD ["--help"]
+#CMD ["/usr/local/bin/scrapy", "--help"]
