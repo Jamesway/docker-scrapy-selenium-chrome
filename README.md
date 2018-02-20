@@ -1,4 +1,4 @@
-## scrapy-selenium-chromw
+## scrapy-selenium-chrome
 
 Docker image with scrapy, selenium and chrome to run the scrapy demo: https://github.com/Jamesway/scrapy-demo
 
