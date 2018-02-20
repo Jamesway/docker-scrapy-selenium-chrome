@@ -50,5 +50,6 @@ RUN BUILD_DEPS='unzip' \
  ENV CHROMEDRIVER_WHITELISTED_IPS "127.0.0.1"
  ENV CHROMEDRIVER_URL_BASE ''
 
- ENTRYPOINT ["/usr/local/bin/scrapy"]
- CMD ["--help"]
+ #ENTRYPOINT ["/usr/local/bin/scrapy"]
+ #CMD ["--help"]
+ CMD ["/bin/bash"]
