@@ -44,12 +44,13 @@ RUN BUILD_DEPS='unzip' \
     && apt-get purge -y --auto-remove $BUILD_DEPS \
     && rm -rf /var/lib/apt/lists/*
 
- ENV DISPLAY :20.0
- ENV SCREEN_GEOMETRY "1440x900x24"
- ENV CHROMEDRIVER_PORT 4444
- ENV CHROMEDRIVER_WHITELISTED_IPS "127.0.0.1"
- ENV CHROMEDRIVER_URL_BASE ''
+ENV DISPLAY :20.0
+ENV SCREEN_GEOMETRY "1440x900x24"
+ENV CHROMEDRIVER_PORT 4444
+ENV CHROMEDRIVER_WHITELISTED_IPS "127.0.0.1"
+ENV CHROMEDRIVER_URL_BASE ''
 
- #ENTRYPOINT ["/usr/local/bin/scrapy"]
- #CMD ["--help"]
- CMD ["/bin/bash"]
+# entrypoint causes a "starting container process caused chdir to cwd" error with -w /working/dir
+#ENTRYPOINT ["/usr/local/bin/scrapy"]
+#CMD ["--help"]
+CMD ["/usr/local/bin/scrapy", "--help"]
