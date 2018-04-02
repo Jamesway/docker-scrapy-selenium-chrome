@@ -3,7 +3,7 @@ FROM python:3.6-slim-stretch
 
 MAINTAINER James <j@mesway.io>
 # based on vimagick/scrapyd and robcherry/docker-chromedriver
-# purging wget removes required run time packages including python
+# purging wget removes required run time packages including python so leave it in
 
 # scrapy and selenium
 RUN BUILD_DEPS='autoconf \
@@ -50,7 +50,9 @@ ENV CHROMEDRIVER_PORT 4444
 ENV CHROMEDRIVER_WHITELISTED_IPS "127.0.0.1"
 ENV CHROMEDRIVER_URL_BASE ''
 
-# entrypoint causes a "starting container process caused chdir to cwd" error with -w /working/dir
+ENV APP_PATH /code
+ENV PATH $APP_PATH:$PATH
+WORKDIR $APP_PATH
+
 ENTRYPOINT ["/usr/local/bin/scrapy"]
 CMD ["--help"]
-#CMD ["/usr/local/bin/scrapy", "--help"]
