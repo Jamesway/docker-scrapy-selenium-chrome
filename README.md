@@ -1,9 +1,12 @@
-# Scrapy Python Scraper with Selenium, Chrome Browser and Chrome Driver
+# Scrapy Python Scraper with Selenium, Chrome Browser and Chrome Driver...
+... with SQLAlchemy and BeautifulSoup4
 
 Demo: https://github.com/jamesway/scrapy-demo
 
 ## Requirements
 - docker
+
+
 
 ## Usage
 

@@ -4,16 +4,24 @@ FROM python:3.6-slim-stretch
 MAINTAINER James <j@mesway.io>
 # based on vimagick/scrapyd and robcherry/docker-chromedriver
 # purging wget removes required run time packages including python so leave it in
+# TODO use pipenv
+
+ENV PATH="/usr/local/mysql/bin:${PATH}"
 
 # scrapy and selenium
 RUN BUILD_DEPS='autoconf \
                 build-essential \
                 git \
                 libssl-dev' \
+    # the "default-" is important...jessie doesn't have it in the package name
+    && RUN_DEPS='default-libmysqlclient-dev' \
     && apt-get update \
     && apt-get install -yqq $RUN_DEPS $BUILD_DEPS --no-install-recommends \
     && pip install git+https://github.com/scrapy/scrapy.git \
     && pip install selenium \
+    && pip install beautifulsoup4 \
+    && pip install SQLAlchemy \
+    && pip install mysqlclient \
     && apt-get purge -y --auto-remove $BUILD_DEPS \
     && rm -rf /var/lib/apt/lists/*
 
