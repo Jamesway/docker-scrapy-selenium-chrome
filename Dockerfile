@@ -62,5 +62,13 @@ ENV APP_PATH /code
 ENV PATH $APP_PATH:$PATH
 WORKDIR $APP_PATH
 
-ENTRYPOINT ["/usr/local/bin/scrapy"]
-CMD ["--help"]
+COPY .gitignore /tmp
+COPY .sample-env /tmp
+COPY docker-compose.yml /tmp
+COPY entrypoint.sh /usr/local/bin
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENV SRC_PATH /tmp
+
+# ENTRYPOINT ["/usr/local/bin/scrapy"]
+# CMD ["--help"]
+ENTRYPOINT ["/bin/bash", "/usr/local/bin/entrypoint.sh"]
