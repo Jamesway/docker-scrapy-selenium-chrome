@@ -76,4 +76,4 @@ ENV SRC_PATH /tmp
 
 # ENTRYPOINT ["/usr/local/bin/scrapy"]
 # CMD ["--help"]
-#ENTRYPOINT ["/bin/bash", "/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/usr/local/bin/entrypoint.sh"]
