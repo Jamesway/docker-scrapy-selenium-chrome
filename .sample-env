@@ -14,3 +14,10 @@ MYSQL_DATABASE=scrapy_demo
 # this is only for the app connection string (settings.py)
 # if using the mariadb service in docker-compose leave this as the service name, mariadb
 MYSQL_HOST=mariadb
+
+
+# elastic search connection string
+# DON'T ADD https:// FOR YOUR HOST - THE CONNECTION STRING ALREADY HAS THIS
+ELASTIC_SEARCH_HOST=host_without_https://
+ELASTIC_SEARCH_USER=user
+ELASTIC_SEARCH_PASSWORD=password
