@@ -27,6 +27,7 @@ RUN BUILD_DEPS='autoconf \
     pip install mysqlclient && \
     pip install certifi && \
     pip install elasticsearch=="6" && \
+    pip install geocoder && \
     apt-get purge -y --auto-remove $BUILD_DEPS && \
     rm -rf /var/lib/apt/lists/*
 
